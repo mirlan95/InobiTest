@@ -1,4 +1,4 @@
-package com.example.inobitest
+package com.example.inobitest.model
 
 import java.io.Serializable
 
