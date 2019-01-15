@@ -2,7 +2,9 @@ package com.example.inobitest
 
 import android.app.Application
 import com.example.inobitest.repository.ApiInterface
+import com.example.inobitest.repository.CommentRepository
 import com.example.inobitest.repository.PostRepository
+import com.example.inobitest.ui.comments.CommentsViewModel
 import com.example.inobitest.ui.posts.PostsViewModel
 import com.example.inobitest.utils.Constants
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -34,6 +36,10 @@ class MyApplication : Application() {
 
         single { PostRepository(get()) }
 
+        single { CommentRepository(get()) }
+
         viewModel { PostsViewModel(get()) }
+
+        viewModel { CommentsViewModel(get()) }
     }
 }

@@ -10,6 +10,6 @@ interface ApiInterface {
     @GET("posts")
     fun getPosts(): Deferred<List<Post>>
 
-    @GET("comments/{postId}")
+    @GET("comments")
     fun getComments(@Query("postId") postId:Int): Deferred<List<Comment>>
 }

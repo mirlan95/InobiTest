@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.example.inobitest.ui.CommentActivity">
+        <activity android:name="com.example.inobitest.ui.comments.CommentsActivity">
         </activity>
     </application>
 
