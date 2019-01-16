@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.inobitest.R
 import com.example.inobitest.model.Comment
 import com.example.inobitest.utils.inflate
-import kotlinx.android.synthetic.main.activity_comments.view.*
 import kotlinx.android.synthetic.main.comment_list_item.view.*
 
 class CommentsAdapter(
@@ -21,7 +20,10 @@ class CommentsAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(comments[position])
     }
-
+    fun addNewComment(comment: Comment, itemCount: Int){
+        (comments as MutableList<Comment>).add(itemCount,comment)
+        notifyItemInserted(itemCount)
+    }
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
 
@@ -33,3 +35,5 @@ class CommentsAdapter(
 
     }
 }
+
+

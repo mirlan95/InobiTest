@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import com.example.inobitest.R
+import com.example.inobitest.model.Comment
 import kotlinx.android.synthetic.main.activity_comments.*
 import kotlinx.android.synthetic.main.dialog_new_comment.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -66,7 +68,9 @@ class CommentsActivity : AppCompatActivity() {
                 isValid = false
             }
             if(isValid){
-
+                
+                adapter.addNewComment(Comment(adapter.itemCount+1,name.toString(),email.toString(),body.toString()),adapter.itemCount)
+                scrollToNewAddedItem()
                 dialog.dismiss()
             }
         }
@@ -74,5 +78,8 @@ class CommentsActivity : AppCompatActivity() {
             dialog.cancel()
         }
         builder.show()
+    }
+    private fun scrollToNewAddedItem(){
+        rv_comment_list.scrollToPosition(adapter.itemCount-1)
     }
 }
